@@ -1,0 +1,101 @@
+type AdminUpgradeabilityProxy_AdminChanged {
+  id: ID!
+  previousAdmin: String!
+  newAdmin: String!
+}
+
+type AdminUpgradeabilityProxy_CollateralAdded {
+  id: ID!
+  token: String!
+  amount: BigInt!
+  timestamp: BigInt!
+  addedBy: String!
+}
+
+type AdminUpgradeabilityProxy_CollateralReclaimed {
+  id: ID!
+  token: String!
+  amount: BigInt!
+  timestamp: BigInt!
+  byWho: String!
+}
+
+type AdminUpgradeabilityProxy_InterestPaid {
+  id: ID!
+  paidInToken: String!
+  interestAmountInDAI: BigInt!
+  timestamp: BigInt!
+  paidBy: String!
+}
+
+type AdminUpgradeabilityProxy_Liquidation {
+  id: ID!
+  userWhoWasLiquidated: String!
+  totalCollateralValueLiquidated: BigInt!
+  timestamp: BigInt!
+  caller: String!
+}
+
+type AdminUpgradeabilityProxy_LoanTaken {
+  id: ID!
+  amount: BigInt!
+  timestamp: BigInt!
+  takenBy: String!
+}
+
+type AdminUpgradeabilityProxy_LoanTermsChanged {
+  id: ID!
+  previousYearlyInterst: BigInt!
+  newYearlyInterst: BigInt!
+  previousLoanDefaultThresholdPercent: BigInt!
+  newLoanDefaultThresholdPercent: BigInt!
+  timestamp: BigInt!
+  changedBy: String!
+}
+
+type AdminUpgradeabilityProxy_NewTokenAdded {
+  id: ID!
+  token: String!
+  collaterability: BigInt!
+  liquidationBeneficiary: String!
+  timestamp: BigInt!
+  addedBy: String!
+}
+
+type AdminUpgradeabilityProxy_OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type AdminUpgradeabilityProxy_Repayment {
+  id: ID!
+  token: String!
+  amountTokens: BigInt!
+  timestamp: BigInt!
+  addedBy: String!
+}
+
+type AdminUpgradeabilityProxy_TokenCollaterabilityChanged {
+  id: ID!
+  token: String!
+  oldCollaterability: BigInt!
+  newCollaterability: BigInt!
+  timestamp: BigInt!
+  changedBy: String!
+}
+
+type AdminUpgradeabilityProxy_TokenLiquidationBeneficiaryChanged {
+  id: ID!
+  token: String!
+  oldBeneficiary: String!
+  newBeneficiary: String!
+  timestamp: BigInt!
+  changedBy: String!
+}
+
+type AdminUpgradeabilityProxy_Upgraded {
+  id: ID!
+  implementation: String!
+}
+

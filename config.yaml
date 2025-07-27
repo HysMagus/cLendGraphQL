@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 1
+  start_block: 0
+  contracts:
+  - name: AdminUpgradeabilityProxy
+    address:
+    - 0x54B276C8a484eBF2a244D933AF5FFaf595ea58c5
+    handler: src/EventHandlers.ts
+    events:
+    - event: AdminChanged(address previousAdmin, address newAdmin)
+    - event: CollateralAdded(address token, uint256 amount, uint256 timestamp, address addedBy)
+    - event: CollateralReclaimed(address token, uint256 amount, uint256 timestamp, address byWho)
+    - event: InterestPaid(address paidInToken, uint256 interestAmountInDAI, uint256 timestamp, address paidBy)
+    - event: Liquidation(address userWhoWasLiquidated, uint256 totalCollateralValueLiquidated, uint256 timestamp, address caller)
+    - event: LoanTaken(uint256 amount, uint256 timestamp, address takenBy)
+    - event: LoanTermsChanged(uint256 previousYearlyInterst, uint256 newYearlyInterst, uint256 previousLoanDefaultThresholdPercent, uint256 newLoanDefaultThresholdPercent, uint256 timestamp, address changedBy)
+    - event: NewTokenAdded(address token, uint256 collaterability, address liquidationBeneficiary, uint256 timestamp, address addedBy)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+    - event: Repayment(address token, uint256 amountTokens, uint256 timestamp, address addedBy)
+    - event: TokenCollaterabilityChanged(address token, uint256 oldCollaterability, uint256 newCollaterability, uint256 timestamp, address changedBy)
+    - event: TokenLiquidationBeneficiaryChanged(address token, address oldBeneficiary, address newBeneficiary, uint256 timestamp, address changedBy)
+    - event: Upgraded(address indexed implementation)
+unordered_multichain_mode: true
